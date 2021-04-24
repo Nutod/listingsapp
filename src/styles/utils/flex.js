@@ -7,8 +7,4 @@ export const flex = css`
   align-items: var(--flex-align, center);
 
   gap: var(--gap, 0.2em);
-
-  & > * {
-    flex: 1 1 100%;
-  }
 `

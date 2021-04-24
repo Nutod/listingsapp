@@ -1,9 +1,9 @@
-import styled from "styled-components";
-import { flow } from "./styles/utils/flow";
+import styled from 'styled-components'
+import { flow } from './styles/utils/flow'
 
 const Wrapper = styled.div`
   ${flow}
-`;
+`
 
 export default function App() {
   return (
@@ -11,5 +11,5 @@ export default function App() {
       <h1>Sandbox</h1>
       <h2>Start Editing</h2>
     </Wrapper>
-  );
+  )
 }

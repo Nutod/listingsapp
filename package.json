@@ -1,8 +1,12 @@
 {
   "name": "liistings-app",
+  "author": "Oladotun Aluko",
   "version": "1.0.0",
   "description": "",
-  "keywords": [],
+  "keywords": [
+    "react",
+    "styled-components"
+  ],
   "main": "src/index.js",
   "dependencies": {
     "react": "17.0.2",

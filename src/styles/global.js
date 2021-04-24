@@ -1,8 +1,8 @@
-import { createGlobalStyle } from 'styled-components'
-import { RESET } from './reset'
-import { ELEMENTS } from './elements'
-import { CRITICAL } from './critical'
-import { TYPOGRAPHY } from './typography'
+import {createGlobalStyle} from 'styled-components'
+import {RESET} from './reset'
+import {ELEMENTS} from './elements'
+import {CRITICAL} from './critical'
+import {TYPOGRAPHY} from './typography'
 
 export const GlobalStyles = createGlobalStyle`
   ${RESET}
@@ -31,5 +31,7 @@ export const GlobalStyles = createGlobalStyle`
    line-height: 1.65;
    overflow-x: hidden;
    font-size: 1.1rem;
+   margin: 0;
+   padding: 1rem;
   }
 `
