@@ -8,9 +8,6 @@ import { flow } from 'src/styles/utils/flow'
 const Wrapper = styled.div`
   ${container}
   ${flow}
-
-  background: var(--color-primary);
-  padding: var(--space-100) 0;
 `
 
 export default function Layout({ children }) {

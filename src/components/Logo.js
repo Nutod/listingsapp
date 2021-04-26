@@ -1,11 +1,26 @@
 import React from 'react'
+import { flex } from 'src/styles/utils/flex'
+import styled, { css } from 'styled-components'
+
+const Wrapper = styled.div`
+  --flex-justify: flex-start;
+  ${flex}
+
+  background: var(--color-secondary);
+  padding: var(--space-100) 0;
+  color: var(--color-white);
+
+  svg {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+`
 
 export default function Logo() {
   return (
-    <div>
+    <Wrapper>
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        className="h-6 w-6"
         fill="none"
         viewBox="0 0 24 24"
         stroke="currentColor"
@@ -18,6 +33,6 @@ export default function Logo() {
         />
       </svg>
       <h2>Listings</h2>
-    </div>
+    </Wrapper>
   )
 }
