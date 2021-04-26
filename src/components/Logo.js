@@ -1,6 +1,6 @@
 import React from 'react'
 import { flex } from 'src/styles/utils/flex'
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 
 const Wrapper = styled.div`
   --flex-justify: flex-start;

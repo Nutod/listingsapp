@@ -1,10 +1,12 @@
 import React from 'react'
-import Layout from 'src/components/Layout'
+import { useNavigate } from 'react-router-dom'
 
 export default function Home() {
-  return (
-    <Layout>
-      <h2>Home Component</h2>
-    </Layout>
-  )
+  let navigate = useNavigate()
+
+  React.useEffect(() => {
+    navigate('/listings')
+  }, [])
+
+  return null
 }
