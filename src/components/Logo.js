@@ -1,5 +1,5 @@
 import React from 'react'
-import { flex } from 'src/styles/utils/flex'
+import { flex } from 'src/styles/utils'
 import styled from 'styled-components'
 
 const LogoWrapper = styled.div`
@@ -7,6 +7,7 @@ const LogoWrapper = styled.div`
   ${flex}
 
   padding: var(--space-100) 0;
+  color: var(--color-secondary);
 
   svg {
     width: 2.5rem;

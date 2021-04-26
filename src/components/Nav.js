@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
-import { flex } from 'src/styles/utils/flex'
+import { flex } from 'src/styles/utils'
 
 const NavWrapper = styled.nav`
   ul {
@@ -19,10 +19,10 @@ export default function Nav() {
     <NavWrapper>
       <ul>
         <li>
-          <Link to="users">Users</Link>
+          <Link to="/users">Users</Link>
         </li>
         <li>
-          <Link to="profile">Profile</Link>
+          <Link to="/profile">Profile</Link>
         </li>
       </ul>
     </NavWrapper>

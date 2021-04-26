@@ -1,11 +1,12 @@
 import React from 'react'
-import { flex } from 'src/styles/utils/flex'
+import { flex, container } from 'src/styles/utils'
 import styled from 'styled-components'
 import Logo from './Logo'
 import Nav from './Nav'
 
 const HeaderWrapper = styled.div`
-  ${flex}
+  ${container}
+  ${flex};
 `
 
 export default function Header() {

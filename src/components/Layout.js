@@ -2,11 +2,11 @@ import React from 'react'
 import styled from 'styled-components'
 import Header from './Header'
 
-import { container } from 'src/styles/utils/container'
-import { flow } from 'src/styles/utils/flow'
+import { flow } from 'src/styles/utils'
 
 const LayoutWrapper = styled.div`
-  ${container}
+  --content-space: var(--space-300);
+
   ${flow}
 `
 
