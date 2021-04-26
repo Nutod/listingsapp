@@ -1,19 +1,12 @@
-import styled from 'styled-components'
-import { container } from './styles/utils/container'
-import { flow } from './styles/utils/flow'
-
-const Wrapper = styled.div`
-  ${container}
-  ${flow}
-
-  background: var(--color-primary);
-  padding: var(--space-100) 0;
-`
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import Home from './pages/Home'
 
 export default function App() {
   return (
-    <Wrapper>
-      <h1>Header</h1>
-    </Wrapper>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
