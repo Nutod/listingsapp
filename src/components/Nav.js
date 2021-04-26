@@ -1,17 +1,30 @@
 import React from 'react'
+import styled from 'styled-components'
 import { Link } from 'react-router-dom'
+import { flex } from 'src/styles/utils/flex'
+
+const NavWrapper = styled.nav`
+  ul {
+    list-style: none;
+
+    --gap: 1rem;
+
+    ${flex}
+    padding-top: 6px;
+  }
+`
 
 export default function Nav() {
   return (
-    <nav>
+    <NavWrapper>
       <ul>
         <li>
           <Link to="users">Users</Link>
         </li>
         <li>
-          <Link to="profile">My Profile</Link>
+          <Link to="profile">Profile</Link>
         </li>
       </ul>
-    </nav>
+    </NavWrapper>
   )
 }
