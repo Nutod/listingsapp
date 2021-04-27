@@ -18,15 +18,17 @@ export default function Listings() {
 
   // Move this to React Query
   React.useEffect(() => {
+    setLoading(true)
+
     fetch('http://fakeapi.jsonparseronline.com/posts')
       .then(response => response.json())
       .then(json => {
-        setLoading(false)
         setData(json.slice(0, 10))
+        setLoading(false)
       })
       .catch(error => {
         setError(error)
-        console.error(error)
+        setLoading(false)
       })
   }, [])
 

@@ -2,11 +2,16 @@ import React from 'react'
 import { useParams } from 'react-router'
 import Layout from 'src/components/Layout'
 import Loading from 'src/components/Loading'
-import { container } from 'src/styles/utils'
+import { container, flow } from 'src/styles/utils'
 import styled from 'styled-components'
 
 const ListingWrapper = styled.div`
-  ${container}
+  --content-space: 2rem;
+
+  ${flow}
+  ${container} /* max-width: 500px; */
+
+  margin-top: var(--space-400);
 `
 
 export default function Listing() {
@@ -17,15 +22,17 @@ export default function Listing() {
 
   // Move this to React Query
   React.useEffect(() => {
-    fetch('http://fakeapi.jsonparseronline.com/posts/1')
+    setLoading(true)
+
+    fetch(`http://fakeapi.jsonparseronline.com/posts/${id}`)
       .then(response => response.json())
       .then(json => {
-        setLoading(false)
         setData(json)
+        setLoading(false)
       })
       .catch(error => {
-        setLoading(false)
         setError(error)
+        setLoading(false)
       })
   }, [id])
 
@@ -40,7 +47,9 @@ export default function Listing() {
   return (
     <Layout>
       <ListingWrapper>
-        <h2>Listing with an id</h2>
+        <h2>{data.title}</h2>
+        <img src={data.imageUrl} alt={data.title} />
+        <p>{data.content}</p>
       </ListingWrapper>
     </Layout>
   )

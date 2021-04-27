@@ -24,6 +24,7 @@ export default function Nav() {
         <li>
           <Link to="/profile">Profile</Link>
         </li>
+        <button>Login</button>
       </ul>
     </NavWrapper>
   )
