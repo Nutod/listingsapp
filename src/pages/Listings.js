@@ -3,6 +3,8 @@ import styled from 'styled-components'
 import Card from 'src/components/Card'
 import Layout from 'src/components/Layout'
 import { container, grid } from 'src/styles/utils'
+import Error from 'src/components/Error'
+import Loading from 'src/components/Loading'
 
 const ListingsGrid = styled.div`
   ${container};
@@ -29,19 +31,11 @@ export default function Listings() {
   }, [])
 
   if (loading) {
-    return (
-      <Layout>
-        <p>Loading...</p>
-      </Layout>
-    )
+    return <Loading />
   }
 
   if (error) {
-    return (
-      <Layout>
-        <p>Something went wrong!</p>
-      </Layout>
-    )
+    return <Error />
   }
 
   return (

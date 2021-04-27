@@ -1,6 +1,7 @@
 import React from 'react'
 import { useParams } from 'react-router'
 import Layout from 'src/components/Layout'
+import Loading from 'src/components/Loading'
 import { container } from 'src/styles/utils'
 import styled from 'styled-components'
 
@@ -14,6 +15,7 @@ export default function Listing() {
   const [loading, setLoading] = React.useState(true)
   const [error, setError] = React.useState(null)
 
+  // Move this to React Query
   React.useEffect(() => {
     fetch('http://fakeapi.jsonparseronline.com/posts/1')
       .then(response => response.json())
@@ -22,10 +24,18 @@ export default function Listing() {
         setData(json)
       })
       .catch(error => {
-         setLoading(false)
-         setError(error)
+        setLoading(false)
+        setError(error)
       })
   }, [id])
+
+  if (loading) {
+    return <Loading />
+  }
+
+  if (error) {
+    return <Error />
+  }
 
   return (
     <Layout>
