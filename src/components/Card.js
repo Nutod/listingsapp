@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { flow } from 'src/styles/utils'
 import styled from 'styled-components'
 
@@ -10,18 +11,16 @@ const CardWrapper = styled.div`
   ${flow}
 `
 
-export default function Card() {
+export default function Card({ data }) {
+  const { title, imageUrl, content, id } = data
+
   return (
     <CardWrapper>
-      <h3>Title</h3>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci est
-        harum fugiat cumque veritatis neque iure provident et earum hic.
-      </p>
-
-      <h4>Heading 4</h4>
+      <img src={imageUrl} alt={title} />
+      <h3>{title}</h3>
+      <p>{`${content.substring(0, 100)}...`}</p>
       <div>
-        <a href="">Link</a>
+        <Link to={`${id}`}>View</Link>
       </div>
     </CardWrapper>
   )
