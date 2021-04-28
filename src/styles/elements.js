@@ -16,8 +16,8 @@ export const ELEMENTS = css`
     }
 
     &:focus {
-      box-shadow: 0px 0px 0px 1px hsl(171deg 90% 13% / 30%),
-        0px 0px 0px 5px hsl(171deg 100% 68% / 40%);
+      box-shadow: 0px 0px 0px 1px hsla(1deg, 100%, 71%, 0.6),
+        0px 0px 0px 5px hsla(1deg, 100%, 71%, 0.5);
     }
 
     &:active {
