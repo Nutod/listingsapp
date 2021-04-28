@@ -11,6 +11,7 @@ import App from './app'
 const queryClient = new QueryClient()
 
 const rootElement = document.getElementById('root')
+
 ReactDOM.render(
   <StrictMode>
     <QueryClientProvider client={queryClient}>

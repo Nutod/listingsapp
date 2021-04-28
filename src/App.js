@@ -1,16 +1,19 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import Home from './pages/Home'
-import Listings from './pages/Listings'
-import Listing from './pages/Listing'
+import React from 'react'
+import { FullPageSpinner } from './components/FullPageSpinner'
+import { useAuthContext } from './context/useAuth'
+
+const AuthenticatedApp = React.lazy(() =>
+  import(/* webpackPrefetch: true */ './authenticated-app'),
+)
+
+const UnauthenticatedApp = React.lazy(() => import('./unauthenticated-app'))
 
 export default function App() {
+  const { user } = useAuthContext()
+
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="listings" element={<Listings />} />
-        <Route path="listings/:id" element={<Listing />} />
-      </Routes>
-    </BrowserRouter>
+    <React.Suspense fallback={<FullPageSpinner />}>
+      {user ? <AuthenticatedApp /> : <UnauthenticatedApp />}
+    </React.Suspense>
   )
 }
