@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import { flex } from 'src/styles/utils'
+import { useAuthContext } from 'src/context/useAuth'
 
 const NavWrapper = styled.nav`
   ul {
@@ -15,15 +16,23 @@ const NavWrapper = styled.nav`
 `
 
 export default function Nav() {
+  const { user } = useAuthContext()
+
+  console.log(user)
+
   return (
     <NavWrapper>
       <ul>
-        <li>
-          <Link to="/users">Users</Link>
-        </li>
-        <li>
-          <Link to="/profile">Profile</Link>
-        </li>
+        {user && (
+          <>
+            <li>
+              <Link to="/users">Users</Link>
+            </li>
+            <li>
+              <Link to="/profile">Profile</Link>
+            </li>
+          </>
+        )}
         <button>Login</button>
       </ul>
     </NavWrapper>

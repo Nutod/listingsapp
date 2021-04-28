@@ -5,10 +5,22 @@ import styled from 'styled-components'
 
 const CardWrapper = styled.div`
   background-color: var(--color-secondary);
-  padding: var(--space-400);
   color: var(--color-white);
+  border-radius: 10px;
+  box-shadow: var(--elevation-four);
 
-  ${flow}
+  img {
+    aspect-ratio: 3/2;
+    /* height: max(18vh, 12rem); */
+    width: 100%;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  div {
+    padding: var(--space-200);
+    ${flow}
+  }
 `
 
 export default function Card({ data }) {
@@ -16,11 +28,16 @@ export default function Card({ data }) {
 
   return (
     <CardWrapper>
-      <img src="https://unsplash.com/photos/tl18RPgKAEE" alt={title} />
-      <h3>{title}</h3>
-      <p>{`${content.substring(0, 100)}...`}</p>
+      <figure>
+        <img src="https://placeimg.com/160/160/transport" alt={title} />
+      </figure>
       <div>
-        <Link to={`${id}`}>View</Link>
+        <h3>{title}</h3>
+        <p>{`${content.substring(0, 100)}...`}</p>
+
+        <p>
+          <Link to={`${id}`}>View</Link>
+        </p>
       </div>
     </CardWrapper>
   )
