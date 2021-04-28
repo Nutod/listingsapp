@@ -16,7 +16,7 @@ export default function Card({ data }) {
 
   return (
     <CardWrapper>
-      <img src={imageUrl} alt={title} />
+      <img src="https://unsplash.com/photos/tl18RPgKAEE" alt={title} />
       <h3>{title}</h3>
       <p>{`${content.substring(0, 100)}...`}</p>
       <div>
