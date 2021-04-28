@@ -1,9 +1,12 @@
 import React from 'react'
+import styled from 'styled-components'
+import { useQuery } from 'react-query'
 import { useParams } from 'react-router'
 import Layout from 'src/components/Layout'
 import Loading from 'src/components/Loading'
+import Error from 'src/components/Error'
 import { container, flow } from 'src/styles/utils'
-import styled from 'styled-components'
+import { client } from 'src/lib/api-client'
 
 const ListingWrapper = styled.div`
   --content-space: 2rem;
@@ -16,31 +19,18 @@ const ListingWrapper = styled.div`
 
 export default function Listing() {
   const { id } = useParams()
-  const [data, setData] = React.useState()
-  const [loading, setLoading] = React.useState(true)
-  const [error, setError] = React.useState(null)
 
-  // Move this to React Query
-  React.useEffect(() => {
-    setLoading(true)
+  const { isLoading, isError, data } = useQuery(['lists', id], () =>
+    client(`posts/${id}`),
+  )
 
-    fetch(`http://fakeapi.jsonparseronline.com/posts/${id}`)
-      .then(response => response.json())
-      .then(json => {
-        setData(json)
-        setLoading(false)
-      })
-      .catch(error => {
-        setError(error)
-        setLoading(false)
-      })
-  }, [id])
+  console.log(data)
 
-  if (loading) {
+  if (isLoading) {
     return <Loading />
   }
 
-  if (error) {
+  if (isError) {
     return <Error />
   }
 

@@ -18,8 +18,6 @@ const NavWrapper = styled.nav`
 export default function Nav() {
   const { user } = useAuthContext()
 
-  console.log(user)
-
   return (
     <NavWrapper>
       <ul>
