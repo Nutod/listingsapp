@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { flex } from 'src/styles/utils'
 import styled from 'styled-components'
 
@@ -9,6 +9,7 @@ const LogoWrapper = styled.div`
 
   padding: var(--space-100) 0;
   color: var(--color-secondary);
+  cursor: pointer;
 
   svg {
     width: 2.5rem;
@@ -21,8 +22,10 @@ const LogoWrapper = styled.div`
 `
 
 export default function Logo() {
+  const navigate = useNavigate()
+
   return (
-    <LogoWrapper>
+    <LogoWrapper onClick={() => navigate('/')}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"

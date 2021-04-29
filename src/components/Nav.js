@@ -36,6 +36,7 @@ export default function Nav() {
             <li>
               <Link to="/profile">Profile</Link>
             </li>
+            <button onClick={() => setUser(null)}>Logout</button>
           </>
         ) : (
           <>
