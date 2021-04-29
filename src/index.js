@@ -1,5 +1,6 @@
 import { StrictMode } from 'react'
 import ReactDOM from 'react-dom'
+import { BrowserRouter } from 'react-router-dom'
 import { QueryClient, QueryClientProvider } from 'react-query'
 import { ReactQueryDevtools } from 'react-query/devtools'
 
@@ -15,11 +16,13 @@ const rootElement = document.getElementById('root')
 ReactDOM.render(
   <StrictMode>
     <QueryClientProvider client={queryClient}>
-      <AuthContextProvider>
-        <GlobalStyles />
-        <App />
-      </AuthContextProvider>
-      <ReactQueryDevtools />
+      <BrowserRouter>
+        <AuthContextProvider>
+          <GlobalStyles />
+          <App />
+        </AuthContextProvider>
+        <ReactQueryDevtools />
+      </BrowserRouter>
     </QueryClientProvider>
   </StrictMode>,
   rootElement,
