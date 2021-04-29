@@ -10,7 +10,11 @@ const AuthenticatedApp = React.lazy(() =>
 const UnauthenticatedApp = React.lazy(() => import('./unauthenticated-app'))
 
 export default function App() {
-  const { user } = useAuthContext()
+  const { user, loading } = useAuthContext()
+
+  if (loading) {
+    return <FullPageSpinner />
+  }
 
   return (
     <React.Suspense fallback={<FullPageSpinner />}>

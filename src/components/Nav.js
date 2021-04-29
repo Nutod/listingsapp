@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { flex } from 'src/styles/utils'
 import { useAuthContext } from 'src/context/useAuth'
 
@@ -20,6 +20,7 @@ const NavWrapper = styled.nav`
 
 export default function Nav() {
   const { user, setUser } = useAuthContext()
+  const navigate = useNavigate()
 
   const [showDialog, setShowDialog] = React.useState(false)
   const open = () => setShowDialog(true)
@@ -36,7 +37,14 @@ export default function Nav() {
             <li>
               <Link to="/profile">Profile</Link>
             </li>
-            <button onClick={() => setUser(null)}>Logout</button>
+            <button
+              onClick={() => {
+                setUser(null)
+                navigate('/')
+              }}
+            >
+              Logout
+            </button>
           </>
         ) : (
           <>

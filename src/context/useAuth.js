@@ -16,17 +16,19 @@ export function userGenerator(delay = 1000) {
 
 function useAuth() {
   const [user, setUser] = React.useState(null)
+  const [loading, setLoading] = React.useState(true)
 
-  // React.useEffect(() => {
-  //   ;(async () => {
-  //     const generatedUser = await userGenerator()
+  React.useEffect(() => {
+    ;(async () => {
+      const generatedUser = await userGenerator()
 
-  //     // console.log(generatedUser)
-  //     setUser(generatedUser)
-  //   })()
-  // }, [])
+      // console.log(generatedUser)
+      // setUser(generatedUser)
+      setLoading(false)
+    })()
+  }, [])
 
-  return { user, setUser }
+  return { user, setUser, loading }
 }
 
 export const [AuthContextProvider, useAuthContext] = constate(useAuth)
