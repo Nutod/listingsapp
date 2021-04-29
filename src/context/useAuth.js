@@ -1,7 +1,12 @@
 import React from 'react'
 import constate from 'constate'
 
-// Use this in production
+// TODO: Add Page Titles
+// TODO: Add error boundary
+// TODO: Use toast component
+// TODO: Fix Visually Hidden accessibility
+
+// Use something like this in production
 export async function bootstrapAppData() {
   let user = null
 
