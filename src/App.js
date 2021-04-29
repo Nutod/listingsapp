@@ -1,15 +1,24 @@
-import styled from 'styled-components'
-import { flow } from './styles/utils/flow'
+import React from 'react'
+import { BrowserRouter } from 'react-router-dom'
+import { FullPageSpinner } from './components/FullPageSpinner'
+import { useAuthContext } from './context/useAuth'
 
-const Wrapper = styled.div`
-  ${flow}
-`
+const AuthenticatedApp = React.lazy(() =>
+  import(/* webpackPrefetch: true */ './authenticated-app'),
+)
+
+const UnauthenticatedApp = React.lazy(() => import('./unauthenticated-app'))
 
 export default function App() {
+  const { user, loading } = useAuthContext()
+
+  if (loading) {
+    return <FullPageSpinner />
+  }
+
   return (
-    <Wrapper>
-      <h1>Sandbox</h1>
-      <h2>Start Editing</h2>
-    </Wrapper>
+    <React.Suspense fallback={<FullPageSpinner />}>
+      {user ? <AuthenticatedApp /> : <UnauthenticatedApp />}
+    </React.Suspense>
   )
 }
