@@ -1,8 +1,7 @@
+# Listings App
 
-# Project Title
-
-A brief description of what this project does and who it's for
-
+This repo is mostly dedicated to trying out new React features. **It should not
+be used in Production**. I've called it Listings for lack of a better name
 
 ## Run Locally
 
@@ -30,7 +29,6 @@ Start the server
   npm run start
 ```
 
-  
 ## Running Tests
 
 To run tests, run the following command
@@ -39,14 +37,10 @@ To run tests, run the following command
   npm run test
 ```
 
-  
 ## Authors
 
 - [Oladotun Aluko](https://www.github.com/nutod)
 
-  
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
-
-  
