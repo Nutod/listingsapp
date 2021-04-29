@@ -1,17 +1,17 @@
-import { flex } from 'src/styles/utils'
 import styled from 'styled-components'
 import Loading from './Loading'
 
 const ErrorWrapper = styled.div`
   min-height: 100vh;
 
-  ${flex}
+  display: grid;
+  place-content: center;
 `
 
 export function FullPageSpinner() {
   return (
     <ErrorWrapper>
-      <Loading text="Loading Application" />
+      <Loading text="Loading Application..." />
     </ErrorWrapper>
   )
 }

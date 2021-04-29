@@ -1,11 +1,11 @@
 import React from 'react'
-import { flex } from 'src/styles/utils'
 import styled from 'styled-components'
 
 const ErrorWrapper = styled.div`
   min-height: 100vh;
 
-  ${flex}
+  display: grid;
+  place-content: center;
 `
 
 export function FullPageErrorFallback({ error }) {

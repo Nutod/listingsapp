@@ -1,10 +1,17 @@
 import React from 'react'
-import Layout from './Layout'
+import styled from 'styled-components'
+
+const LoadingWrapper = styled.div`
+  min-height: 100vh;
+
+  display: grid;
+  place-content: center;
+`
 
 export default function Loading({ text = 'Loading...' }) {
   return (
-    <Layout>
-      <p style={{ textAlign: 'center' }}>{text}</p>
-    </Layout>
+    <LoadingWrapper>
+      <p>{text}</p>
+    </LoadingWrapper>
   )
 }

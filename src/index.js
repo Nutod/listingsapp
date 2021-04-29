@@ -21,7 +21,7 @@ ReactDOM.render(
           <GlobalStyles />
           <App />
         </AuthContextProvider>
-        <ReactQueryDevtools />
+        {process.env.NODE_ENV === 'development' && <ReactQueryDevtools />}
       </BrowserRouter>
     </QueryClientProvider>
   </StrictMode>,
